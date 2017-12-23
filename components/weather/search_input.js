@@ -5,7 +5,7 @@ import axios from 'axios';
 export default class SearchInput extends Component {
   constructor(props) {
     super(props);
-    this.state = {zip: "", forecast: null};
+    this.state = {zip: "", forecast: {} };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,7 +43,6 @@ export default class SearchInput extends Component {
         forecast[weekDay] = temp;
       }
     });
-    debugger
     this.setState({ forecast });
   }
 
@@ -59,13 +58,14 @@ export default class SearchInput extends Component {
   }
 
   render() {
+    debugger
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <p>Type in your zip code to see how awful the weather is in your area this week!</p>
           <input onChange={this.handleChange} value={this.state.zip} />
         </form>
-        <Forecast forecase={this.state.forecast}/>
+        <Forecast forecast={this.state.forecast}/>
         <style jsx>{`
           input {
             border: 1px solid purple;

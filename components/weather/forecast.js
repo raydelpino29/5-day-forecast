@@ -3,7 +3,6 @@ import { Component } from 'react';
 export default class Forecast extends Component {
   constructor(props) {
     super(props);
-    this.state = { forecast: this.props.forecast };
   }
 
   componentWillReceiveProps () {
@@ -11,11 +10,16 @@ export default class Forecast extends Component {
   }
 
   render() {
+    const weatherItems = Object.keys(this.props.forecast).map((day, idx) => {
+      return (
+        <li key={idx} >{day} {this.props.forecast[day]}F</li>
+      )
+    });
     return (
       <div>
-        <div>
-          <p>{this.state.forecast}</p>
-        </div>
+        <ul>
+          {weatherItems}
+        </ul>
         <style jsx>{`
           input {
             border: 1px solid purple;
@@ -23,6 +27,9 @@ export default class Forecast extends Component {
           p {
             display: block;
             color: black;
+          }
+          div {
+            height: 20px;
           }
         `}</style>
       </div>
