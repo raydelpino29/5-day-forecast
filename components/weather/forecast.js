@@ -29,7 +29,8 @@ export default class Forecast extends Component {
             color: black;
           }
           div {
-            height: 20px;
+            background: orange;
+            height: 50%;
           }
         `}</style>
       </div>

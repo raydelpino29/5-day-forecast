@@ -74,6 +74,10 @@ export default class SearchInput extends Component {
             display: block;
             color: black;
           }
+          form {
+            height: 50%;
+            background: blue;
+          }
         `}</style>
       </div>
     )

@@ -9,11 +9,16 @@ export default class Page extends Component {
 
   render() {
     return (
-      <div>
+      <div className="root" >
         <Head>
-          <title>Take-home Project</title>
+          <title>Common Weather App</title>
         </Head>
         <SearchInput />
+        <style jsx global>{`
+          html, body, div {
+            height: 100%;
+          }
+        `}</style>
       </div>
     )
   }
