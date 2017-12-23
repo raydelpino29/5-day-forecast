@@ -15,7 +15,7 @@ export default class SearchInput extends Component {
   }
 
   parseForecast (weather) {
-    const date = new Date(weather.data.list[0].dt*1000).toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
+    const date = new Date().toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
     let monthLength = 31;
     const thirtymonths = ["Sep", "Apr", "Jun", "Nov"];
     if (date[1] === "Feb") {
@@ -26,12 +26,13 @@ export default class SearchInput extends Component {
     let fiveDays = [];
     let count = 0;
     while (fiveDays.length < 5) {
-      const day = parseInt(date[2]);
+      const day = parseInt(new Date().toString().split(" ")[2]);
       fiveDays.push((day + count) % monthLength);
       count++;
     }
     let forecast = {};
     Object.values(weather.data.list).forEach((info) => {
+      const date = new Date(info.dt*1000).toString().split(" ");
       const dayNumber = parseInt(date[2]);
       const weekDay = date[0];
 
