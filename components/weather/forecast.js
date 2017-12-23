@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import WeatherItem from './weather_item';
 
 export default class Forecast extends Component {
   constructor(props) {
@@ -12,8 +13,15 @@ export default class Forecast extends Component {
   render() {
     const weatherItems = Object.keys(this.props.forecast).map((day, idx) => {
       return (
-        <li key={idx} >{day} {this.props.forecast[day]}F</li>
-      )
+        <li>
+          <WeatherItem key={idx} forecast={this.props.forecast} day={day}/>
+          <style jsx>{`
+            li {
+              list-style: none;
+            }
+          `}</style>
+        </li>
+      );
     });
     return (
       <div>
@@ -31,6 +39,12 @@ export default class Forecast extends Component {
           div {
             background: orange;
             height: 50%;
+            display: block;
+            margin: 0 auto;
+          }
+          ul {
+            display: flex;
+            justify-content: center;
           }
         `}</style>
       </div>
