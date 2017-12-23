@@ -15,7 +15,7 @@ export default class SearchInput extends Component {
   }
 
   parseForecast (weather) {
-    const date = new Date().toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
+    const date = new Date(weather.data.list[0].dt*1000).toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
     let monthLength = 31;
     const thirtymonths = ["Sep", "Apr", "Jun", "Nov"];
     if (date[1] === "Feb") {
@@ -23,30 +23,30 @@ export default class SearchInput extends Component {
     } else if (thirtymonths.includes(date[1])) {
       monthLength = 30;
     }
-    let fiveDays = new Set();
+    let fiveDays = [];
     let count = 0;
-    while (Object.values(fiveDays).length < 5) {
-      const day = parseInt(new Date().toString().split(" ")[2]);
+    while (fiveDays.length < 5) {
+      const day = parseInt(date[2]);
       fiveDays.push((day + count) % monthLength);
       count++;
     }
     let forecast = {};
-    Object.values(weather.data.list).filter((info) => {
-      const date = new Date(info.dt).toString().split(" ");
-      const dayNumber = date[2];
+    Object.values(weather.data.list).forEach((info) => {
+      const dayNumber = parseInt(date[2]);
       const weekDay = date[0];
 
       if (forecast[dayNumber]) {
-        continue;
-      } else if (fiveDays.has(dayNumber)) {
+        return;
+      } else if (fiveDays.includes(dayNumber)) {
         const temp = Math.floor((info.main.temp * 9/5) - 459.67);
         forecast[weekDay] = temp;
       }
     });
+    debugger
     this.setState({ forecast });
   }
 
-  handleSubmit () {
+  handleSubmit (e) {
     e.preventDefault();
     const baseUrl = "https://api.openweathermap.org/data/2.5/forecast?zip=";
     const zip = `${this.state.zip}`;
@@ -62,7 +62,7 @@ export default class SearchInput extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <p>Type in your zip code to see how awful the weather is in your area this week!</p>
-          <input onChange={this.handleChange}></input>
+          <input onChange={this.handleChange} value={this.state.zip} />
         </form>
         <Forecast forecase={this.state.forecast}/>
         <style jsx>{`
