@@ -11,11 +11,14 @@ const WeatherItem = ({ forecast, day }) => {
       <style jsx>{`
         div {
           border: 1px solid black;
-          margin-left: 5px;
+          margin-left: 15px;
           text-align: center;
         }
-        p {
-          font-size: 30px;
+        div p {
+          font-size: 100%;
+        }
+        section p {
+          font-size: 10vw;
           display: inline;
         }
         .day {
@@ -24,6 +27,9 @@ const WeatherItem = ({ forecast, day }) => {
         section {
           border-top: 1px solid black;
           padding: 10px 20px;
+        }
+        small {
+          font-size: 200%;
         }
       `}</style>
     </div>

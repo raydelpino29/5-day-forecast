@@ -58,25 +58,39 @@ export default class SearchInput extends Component {
   }
 
   render() {
-    debugger
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <p>Type in your zip code to see how awful the weather is in your area this week!</p>
-          <input onChange={this.handleChange} value={this.state.zip} />
+        <section>
+          <h1>Weather app</h1>
+          <p>Type in your zip code to see how awful the weather is in your area this week.</p>
+          <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
+        </section>
         </form>
         <Forecast forecast={this.state.forecast}/>
         <style jsx>{`
+          h1 {
+            font-size: 3vw;
+          }
           input {
-            border: 1px solid purple;
+            padding: 2%;
+            width: 50%;
+            background: transparent;
+            border: 2px solid white;
           }
           p {
             display: block;
             color: black;
+            width: 35%;
+            font-size: 1.5vw;
+          }
+          section {
+            margin-left: 5%;
           }
           form {
-            height: 50%;
+            height: 100%;
             background: blue;
+            margin-bottom: 15px;
           }
         `}</style>
       </div>
