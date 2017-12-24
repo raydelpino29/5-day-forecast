@@ -20,6 +20,11 @@ export default class Forecast extends Component {
               list-style: none;
               display: block;
             }
+            @media (max-width: 768px) {
+              li {
+                padding-bottom: 10px;
+              }
+            }
           `}</style>
         </li>
       );
@@ -30,9 +35,6 @@ export default class Forecast extends Component {
           {weatherItems}
         </ul>
         <style jsx>{`
-          input {
-            border: 1px solid purple;
-          }
           p {
             display: block;
             color: black;
@@ -46,13 +48,19 @@ export default class Forecast extends Component {
           }
           ul {
             display: flex;
-            justify-content: center;
             padding: 0;
             margin: 0;
             position: relative;
             top: 33%;
-            position: relative;
-            right: 15px;
+            justify-content: center;
+          }
+          @media (max-width: 768px) {
+            ul {
+              display: block
+              width: 20%;
+              margin: 0 auto;
+              top: 2%;
+            }
           }
         `}</style>
       </div>

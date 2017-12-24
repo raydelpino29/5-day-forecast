@@ -16,6 +16,7 @@ export default class SearchInput extends Component {
 
   parseForecast (weather) {
     const date = new Date().toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
+    // be sure to adjust for days late at night, and make the date be the first date listed in the forecast data
     let monthLength = 31;
     const thirtymonths = ["Sep", "Apr", "Jun", "Nov"];
     if (date[1] === "Feb") {
@@ -43,6 +44,7 @@ export default class SearchInput extends Component {
         forecast[weekDay] = temp;
       }
     });
+    debugger
     this.setState({ forecast });
   }
 
@@ -70,31 +72,43 @@ export default class SearchInput extends Component {
         <Forecast forecast={this.state.forecast}/>
         <style jsx>{`
           h1 {
-            font-size: 3vw;
+            font-size: 35px;
           }
           input {
-            padding: 1% 2%;
+            padding: 2% 2%;
             width: 50%;
             background: transparent;
             border: 2px solid white;
-            font-size: 3vw;
+            font-size: 30px;
           }
           p {
             display: block;
             color: black;
-            width: 35%;
-            font-size: 1.5vw;
-            margin-bottom: 4%;
+            width: 370px;
+            font-size: 17px;
+            font-family: "Tiempo";
+            margin-bottom: 40px;
+          }
+          div {
+            min-height: 560px;
           }
           section {
             margin-left: 5%;
             position: relative;
-            top: 20%;
+            top: 25%;
           }
           form {
             height: 100%;
             background: blue;
             margin-bottom: 15px;
+          }
+          @media (max-width: 768px) {
+            input {
+              width: 60%;
+            }
+            div {
+              min-height: 680px;
+            }
           }
         `}</style>
       </div>
