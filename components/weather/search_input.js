@@ -73,19 +73,23 @@ export default class SearchInput extends Component {
             font-size: 3vw;
           }
           input {
-            padding: 2%;
+            padding: 1% 2%;
             width: 50%;
             background: transparent;
             border: 2px solid white;
+            font-size: 3vw;
           }
           p {
             display: block;
             color: black;
             width: 35%;
             font-size: 1.5vw;
+            margin-bottom: 4%;
           }
           section {
             margin-left: 5%;
+            position: relative;
+            top: 20%;
           }
           form {
             height: 100%;
