@@ -75,14 +75,17 @@ export default class SearchInput extends Component {
               <h1>Weather app</h1>
               <p>Type in your zip code to see how awful the weather is in your area this week.</p>
               <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
+              <button onClick={this.handleClick}>Scroll</button>
             </section>
           </form>
-          <button onClick={this.handleClick}>Scroll</button>
         </main>
         <Forecast forecast={this.state.forecast}/>
         <style jsx>{`
           h1 {
             font-size: 35px;
+          }
+          div {
+            min-height: 420px;
           }
           input {
             padding: 2% 2%;
@@ -109,6 +112,11 @@ export default class SearchInput extends Component {
             background: blue;
             margin-bottom: 15px;
           }
+          button {
+            position: absolute;
+            top: 120%;
+            left: 0;
+          }
           @media (max-width: 768px) {
             input {
               width: 60%;
@@ -119,7 +127,7 @@ export default class SearchInput extends Component {
               width: 90%;
             }
             p {
-              width: 330px;
+              width: 300px;;
               font-size: 15px;
             }
           }
