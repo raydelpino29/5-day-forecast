@@ -14,16 +14,13 @@ const WeatherItem = ({ forecast, day }) => {
           margin: 0 1vw;
           text-align: center;
         }
-        div p {
+        .day {
           font-size: 1.5vw;
         }
         section p {
           font-size: 7vw;
           padding: 0 1vw;
           display: inline;
-        }
-        .day {
-          font-size: 10px;
         }
         section {
           border-top: 1px solid black;
@@ -39,7 +36,11 @@ const WeatherItem = ({ forecast, day }) => {
           section p {
             font-size: 50px;
           }
-          .div p {
+          .day {
+            font-size: 15px;
+            margin: 9px;
+          }
+          small {
             font-size: 15px;
           }
         }

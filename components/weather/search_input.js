@@ -15,8 +15,7 @@ export default class SearchInput extends Component {
   }
 
   parseForecast (weather) {
-    const date = new Date().toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
-    // be sure to adjust for days late at night, and make the date be the first date listed in the forecast data
+    const date = new Date(weather.data.list[0].dt*1000).toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
     let monthLength = 31;
     const thirtymonths = ["Sep", "Apr", "Jun", "Nov"];
     if (date[1] === "Feb") {
@@ -27,7 +26,7 @@ export default class SearchInput extends Component {
     let fiveDays = [];
     let count = 0;
     while (fiveDays.length < 5) {
-      const day = parseInt(new Date().toString().split(" ")[2]);
+      const day = parseInt(date[2]);
       fiveDays.push((day + count) % monthLength);
       count++;
     }
@@ -89,9 +88,6 @@ export default class SearchInput extends Component {
             font-family: "Tiempo";
             margin-bottom: 40px;
           }
-          div {
-            min-height: 560px;
-          }
           section {
             margin-left: 5%;
             position: relative;
@@ -106,8 +102,10 @@ export default class SearchInput extends Component {
             input {
               width: 60%;
             }
-            div {
-              min-height: 680px;
+          }
+          @media (max-width: 480px) {
+            input {
+              width: 90%;
             }
           }
         `}</style>
