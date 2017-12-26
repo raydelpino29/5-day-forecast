@@ -107,6 +107,10 @@ export default class SearchInput extends Component {
             input {
               width: 90%;
             }
+            p {
+              width: 330px;
+              font-size: 15px;
+            }
           }
         `}</style>
       </div>

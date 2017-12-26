@@ -12,6 +12,7 @@ export default class Page extends Component {
       <div className="root" >
         <Head>
           <title>Common Weather App</title>
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
         </Head>
         <SearchInput />
         <style jsx global>{`
