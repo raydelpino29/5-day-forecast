@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Forecast from './forecast';
 import axios from 'axios';
+import $ from 'jquery';
 
 export default class SearchInput extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class SearchInput extends Component {
     this.state = {zip: "", forecast: {} };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange (e) {
@@ -43,7 +45,6 @@ export default class SearchInput extends Component {
         forecast[weekDay] = temp;
       }
     });
-    debugger
     this.setState({ forecast });
   }
 
@@ -56,18 +57,28 @@ export default class SearchInput extends Component {
       console.log(weather);
       this.parseForecast(weather);
     });
+    this.handleClick();
+  }
+
+  handleClick () {
+    $('html, body').animate({
+      scrollTop: $("#forecast").offset().top
+    }, 1000);
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-        <section>
-          <h1>Weather app</h1>
-          <p>Type in your zip code to see how awful the weather is in your area this week.</p>
-          <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
-        </section>
-        </form>
+        <main>
+          <form onSubmit={this.handleSubmit}>
+            <section>
+              <h1>Weather app</h1>
+              <p>Type in your zip code to see how awful the weather is in your area this week.</p>
+              <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
+            </section>
+          </form>
+          <button onClick={this.handleClick}>Scroll</button>
+        </main>
         <Forecast forecast={this.state.forecast}/>
         <style jsx>{`
           h1 {
@@ -88,12 +99,12 @@ export default class SearchInput extends Component {
             font-family: "Tiempo";
             margin-bottom: 40px;
           }
-          section {
+          form {
             margin-left: 5%;
             position: relative;
             top: 25%;
           }
-          form {
+          main {
             height: 100%;
             background: blue;
             margin-bottom: 15px;

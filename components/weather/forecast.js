@@ -30,7 +30,7 @@ export default class Forecast extends Component {
       );
     });
     return (
-      <div>
+      <div id="forecast">
         <ul>
           {weatherItems}
         </ul>
