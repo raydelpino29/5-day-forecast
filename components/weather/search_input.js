@@ -6,7 +6,7 @@ import $ from 'jquery';
 export default class SearchInput extends Component {
   constructor(props) {
     super(props);
-    this.state = {zip: "", forecast: {} };
+    this.state = {zip: "", forecast: {}, loading: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -29,7 +29,11 @@ export default class SearchInput extends Component {
     let count = 0;
     while (fiveDays.length < 5) {
       const day = parseInt(date[2]);
-      fiveDays.push((day + count) % monthLength);
+      if ((day + count) > monthLength) {
+        fiveDays.push((day + count) % monthLength);
+      } else {
+        fiveDays.push(day + count);
+      }
       count++;
     }
     let forecast = {};
@@ -45,11 +49,12 @@ export default class SearchInput extends Component {
         forecast[weekDay] = temp;
       }
     });
-    this.setState({ forecast });
+    this.setState({ forecast, loading: false });
   }
 
   handleSubmit (e) {
     e.preventDefault();
+    this.setState({ forecast: {}, loading: true });
     const baseUrl = "https://api.openweathermap.org/data/2.5/forecast?zip=";
     const zip = `${this.state.zip}`;
     const fullUrl = baseUrl + zip + "&appid=670e6d2b31b62201dc47b79f5a87b500";
@@ -67,6 +72,7 @@ export default class SearchInput extends Component {
   }
 
   render() {
+    debugger
     return (
       <div>
         <main>
@@ -79,13 +85,14 @@ export default class SearchInput extends Component {
             </section>
           </form>
         </main>
-        <Forecast forecast={this.state.forecast}/>
+        <Forecast forecast={this.state.forecast} loading={this.state.loading}/>
         <style jsx>{`
           h1 {
             font-size: 35px;
           }
           div {
-            min-height: 420px;
+            min-height: 530px;
+            min-width: 305px;
           }
           input {
             padding: 2% 2%;

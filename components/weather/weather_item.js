@@ -34,7 +34,10 @@ const WeatherItem = ({ forecast, day }) => {
             min-width: 120px;
           }
           section p {
-            font-size: 50px;
+            font-size: 45px;
+          }
+          section {
+            padding: 2px;
           }
           .day {
             font-size: 15px;
@@ -42,6 +45,14 @@ const WeatherItem = ({ forecast, day }) => {
           }
           small {
             font-size: 15px;
+          }
+          @media (max-width: 480px) {
+            div {
+              min-width: 110px;
+            }
+            section p {
+              font-size: 11vw;
+            }
           }
         }
       `}</style>

@@ -29,12 +29,41 @@ export default class Forecast extends Component {
         </li>
       );
     });
+    let spinnerClass = this.props.loading ? "spinner" : "";
+    debugger
     return (
       <div id="forecast">
+      <i className={spinnerClass}></i>
         <ul>
           {weatherItems}
         </ul>
         <style jsx>{`
+          .spinner{
+            width: 80px;
+            height: 80px;
+
+            border: 2px solid #f3f3f3;
+            border-top:3px solid #f25a41;
+            border-radius: 100%;
+
+            position: absolute;
+            top: 200%;
+            bottom:0;
+            left:0;
+            right: 0;
+            margin: auto;
+
+            animation: spin 1s infinite linear;
+          }
+
+          @keyframes spin {
+            from{
+                transform: rotate(0deg);
+            }to{
+                transform: rotate(360deg);
+            }
+          }
+
           p {
             display: block;
             color: black;
@@ -60,6 +89,11 @@ export default class Forecast extends Component {
               width: 20%;
               margin: 0 auto;
               top: 2%;
+            }
+            @media (max-height: 530px) {
+              .spinner {
+                top: 1200px;
+              }
             }
           }
         `}</style>
