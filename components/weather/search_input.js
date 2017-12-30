@@ -6,7 +6,7 @@ import $ from 'jquery';
 export default class SearchInput extends Component {
   constructor(props) {
     super(props);
-    this.state = {zip: "", forecast: {}, loading: false };
+    this.state = {zip: "", forecast: {}, loading: false, error: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -54,13 +54,16 @@ export default class SearchInput extends Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.setState({ forecast: {}, loading: true });
+    this.setState({ error: "", forecast: {}, loading: true });
     const baseUrl = "https://api.openweathermap.org/data/2.5/forecast?zip=";
     const zip = `${this.state.zip}`;
     const fullUrl = baseUrl + zip + "&appid=670e6d2b31b62201dc47b79f5a87b500";
     axios.get(fullUrl).then((weather) => {
       console.log(weather);
       this.parseForecast(weather);
+    }, (error) => {
+      this.setState({error: "This is not a valid US zip code. Please enter your code again.",
+        loading: false});
     });
     this.handleClick();
   }
@@ -72,7 +75,6 @@ export default class SearchInput extends Component {
   }
 
   render() {
-    debugger
     return (
       <div>
         <main>
@@ -86,13 +88,13 @@ export default class SearchInput extends Component {
           </form>
         </main>
         <Forecast forecast={this.state.forecast} loading={this.state.loading}/>
+        <p className="error">{this.state.error}</p>
         <style jsx>{`
           h1 {
             font-size: 35px;
           }
           div {
-            min-height: 530px;
-            min-width: 305px;
+            min-width: 320px;
           }
           input {
             padding: 2% 2%;
@@ -117,12 +119,17 @@ export default class SearchInput extends Component {
           main {
             height: 100%;
             background: blue;
-            margin-bottom: 15px;
           }
           button {
             position: absolute;
             top: 120%;
             left: 0;
+          }
+          .error {
+            position: relative;
+            margin: 0 auto;
+            top: -50%;
+            transform: translateY(-50%);
           }
           @media (max-width: 768px) {
             input {

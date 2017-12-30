@@ -18,11 +18,13 @@ export default class Forecast extends Component {
           <style jsx>{`
             li {
               list-style: none;
-              display: block;
+              display: flex;
+              padding: 0 7px;
+              justify-content: center;
             }
             @media (max-width: 768px) {
               li {
-                padding-bottom: 10px;
+                padding: 5% 15%;
               }
             }
           `}</style>
@@ -30,7 +32,6 @@ export default class Forecast extends Component {
       );
     });
     let spinnerClass = this.props.loading ? "spinner" : "";
-    debugger
     return (
       <div id="forecast">
       <i className={spinnerClass}></i>
@@ -47,7 +48,7 @@ export default class Forecast extends Component {
             border-radius: 100%;
 
             position: absolute;
-            top: 200%;
+            top: 0;
             bottom:0;
             left:0;
             right: 0;
@@ -71,6 +72,7 @@ export default class Forecast extends Component {
           }
           div {
             background: orange;
+            position: relative;
             height: 100%;
             display: block;
             margin: 0 auto;
@@ -78,22 +80,16 @@ export default class Forecast extends Component {
           ul {
             display: flex;
             padding: 0;
-            margin: 0;
             position: relative;
-            top: 33%;
             justify-content: center;
+            top: 50%;
+            transform: translateY(-50%);
           }
           @media (max-width: 768px) {
             ul {
-              display: block
+              flex-direction: column;
               width: 20%;
               margin: 0 auto;
-              top: 2%;
-            }
-            @media (max-height: 530px) {
-              .spinner {
-                top: 1200px;
-              }
             }
           }
         `}</style>
