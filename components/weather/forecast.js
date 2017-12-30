@@ -32,6 +32,7 @@ export default class Forecast extends Component {
       );
     });
     let spinnerClass = this.props.loading ? "spinner" : "";
+    // credit the spinner
     return (
       <div id="forecast">
       <i className={spinnerClass}></i>
@@ -71,7 +72,7 @@ export default class Forecast extends Component {
             width: 350px;
           }
           div {
-            background: orange;
+            background: #333333;
             position: relative;
             height: 100%;
             display: block;

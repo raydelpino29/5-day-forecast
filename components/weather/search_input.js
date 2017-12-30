@@ -83,15 +83,17 @@ export default class SearchInput extends Component {
               <h1>Weather app</h1>
               <p>Type in your zip code to see how awful the weather is in your area this week.</p>
               <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
+              <img onClick={this.handleClick} src="https://s3.us-east-2.amazonaws.com/icons123/downarrow+(1).png" />
             </section>
           </form>
-          <img onClick={this.handleClick} src="https://s3.us-east-2.amazonaws.com/icons123/downarrow+(1).png" />
         </main>
         <Forecast forecast={this.state.forecast} loading={this.state.loading}/>
         <p className="error">{this.state.error}</p>
         <style jsx>{`
           h1 {
-            font-size: 35px;
+            font: 40px "Apercu", serif;
+            font-weight: 500;
+            color: #fff;
           }
           div {
             min-width: 320px;
@@ -107,27 +109,29 @@ export default class SearchInput extends Component {
           }
           p {
             display: block;
-            color: black;
+            color: #fff;
             width: 370px;
-            font-size: 17px;
-            font-family: "Tiempo";
+            font: 17px "Apercu", sans-serif;
+            font-weight: lighter;
             margin-bottom: 40px;
           }
           form {
             margin-left: 5%;
             position: relative;
-            top: 25%;
+            position: relative;
+            justify-content: center;
+            top: 50%;
+            transform: translateY(-50%);
           }
           main {
             height: 100%;
-            background: blue;
+            background: #d34c34;
           }
           img {
             cursor: pointer;
             height: 35px;
-            margin-left: 5%;
-            position: relative;
-            top: 200px;
+            display: table-header-group;
+            margin-top: 50px;
           }
           .error {
             position: relative;
