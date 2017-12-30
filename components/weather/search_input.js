@@ -73,7 +73,7 @@ export default class SearchInput extends Component {
       scrollTop: $("#forecast").offset().top
     }, 1000);
   }
-
+// https://s3.us-east-2.amazonaws.com/icons123/downarrow.png
   render() {
     return (
       <div>
@@ -83,9 +83,9 @@ export default class SearchInput extends Component {
               <h1>Weather app</h1>
               <p>Type in your zip code to see how awful the weather is in your area this week.</p>
               <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
-              <button onClick={this.handleClick}>Scroll</button>
             </section>
           </form>
+          <img onClick={this.handleClick} src="https://s3.us-east-2.amazonaws.com/icons123/downarrow+(1).png" />
         </main>
         <Forecast forecast={this.state.forecast} loading={this.state.loading}/>
         <p className="error">{this.state.error}</p>
@@ -95,6 +95,8 @@ export default class SearchInput extends Component {
           }
           div {
             min-width: 320px;
+            min-height: 630px;
+            margin-bottom: 0;
           }
           input {
             padding: 2% 2%;
@@ -120,10 +122,12 @@ export default class SearchInput extends Component {
             height: 100%;
             background: blue;
           }
-          button {
-            position: absolute;
-            top: 120%;
-            left: 0;
+          img {
+            cursor: pointer;
+            height: 35px;
+            margin-left: 5%;
+            position: relative;
+            top: 200px;
           }
           .error {
             position: relative;

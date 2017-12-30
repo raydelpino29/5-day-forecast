@@ -75,11 +75,11 @@ export default class Forecast extends Component {
             position: relative;
             height: 100%;
             display: block;
-            margin: 0 auto;
           }
           ul {
             display: flex;
             padding: 0;
+            margin: 0;
             position: relative;
             justify-content: center;
             top: 50%;
