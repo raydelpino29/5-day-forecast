@@ -3,7 +3,7 @@ import Forecast from './forecast';
 import axios from 'axios';
 import $ from 'jquery';
 
-export default class SearchInput extends Component {
+class SearchInput extends Component {
   constructor(props) {
     super(props);
     this.state = {zip: "", forecast: {}, loading: false, error: ""};
@@ -158,3 +158,4 @@ export default class SearchInput extends Component {
     )
   }
 }
+export default SearchInput

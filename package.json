@@ -7,16 +7,20 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
+    "fontface-loader": "0.0.8",
     "jquery": "^3.2.1",
     "next": "^4.2.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-font-face": "^0.2.1",
-    "react-loading-spinner": "^1.0.12"
+    "webfonts-loader": "^4.0.1"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6"
   }
 }

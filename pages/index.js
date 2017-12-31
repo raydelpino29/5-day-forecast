@@ -25,6 +25,23 @@ export default class Page extends Component {
             height: 100%;
             width: 100%;
           }
+          @font-face {
+            font-family: 'Tiempos';
+            src: url('.fonts/TiemposHeadline-Semibold.otf');
+            font-weight: normal;
+            font-style: normal;
+          }
+          @font-face {
+            font-family: 'Apercu'
+              src: url('./fonts/Apercu/apercu_bold_italic_pro.otf');
+              src: url('./fonts/Apercu/apercu_bold_pro.otf') format('opentype');
+              src: url('./fonts/Apercu/apercu_medium_italic_pro.otf') format('opentype');
+              src: url('./fonts/Apercu/apercu_regular_italic_pro.otf') format('opentype');
+              src: url('./fonts/Apercu/apercu_regular_pro.otf') format('opentype');
+              src: url('./fonts/Apercu/apercu_medium_pro.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+          }
         `}</style>
       </div>
     )

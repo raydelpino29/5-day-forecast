@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import ReactFontFace from 'react-font-face'
-
 const WeatherItem = ({ forecast, day }) => {
   const weekDays = {"Mon":"Monday", "Tue": "Tuesday", "Wed":"Wednesday",
           "Thu":"Thursday", "Fri":"Friday", "Sat":"Saturday", "Sun":"Sunday"};
@@ -11,18 +9,8 @@ const WeatherItem = ({ forecast, day }) => {
         <p>{forecast[day]}</p><small>F</small>
       </section>
       <style jsx>{`
-        @font-face {
-          font-family: "Apercu";
-          src:
-          local("apercu_bold_italic_pro.otf") format("opentype"),
-          local("apercu_bold_pro.otf") format("opentype"),
-          local("apercu_medium_italic_pro.otf") format("opentype"),
-          local("apercu_regular_italic_pro.otf") format("opentype"),
-          local("apercu_regular_pro.otf") format("opentype"),
-          local("apercu_medium_pro.otf") format("opentype");
-        }
         p, small {
-          font-family: Tiempos;
+          font-family: "Tiempos", sans-serif;
           font-weight: lighter;
           color: #fff;
         }
@@ -35,6 +23,8 @@ const WeatherItem = ({ forecast, day }) => {
           font-size: 1.5vw;
         }
         section p {
+          font-family: "Apercu", serif;
+          font-weight: 600;
           font-size: 45px;
           padding: 0 1vw;
           display: inline;
