@@ -2,7 +2,6 @@ import { Component } from 'react';
 import Forecast from './forecast';
 import axios from 'axios';
 import $ from 'jquery';
-// var styles = require('../../assets/index.css');
 
 class SearchInput extends Component {
   constructor(props) {
@@ -91,7 +90,7 @@ class SearchInput extends Component {
         <p className="error">{this.state.error}</p>
         <style jsx>{`
           h1 {
-            font: 40px "Tiempos", serif;
+            font: 35px "Tiempos", serif;
             color: #fff;
           }
           div {
@@ -112,7 +111,7 @@ class SearchInput extends Component {
           p {
             display: block;
             color: #fff;
-            width: 370px;
+            width: 420px;
             font: 17px "Apercu", sans-serif;
             font-weight: lighter;
             margin-bottom: 40px;

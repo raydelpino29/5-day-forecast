@@ -1,5 +1,4 @@
 import { Component } from 'react';
-// var styles = require('../../assets/index.css');
 
 const WeatherItem = ({ forecast, day }) => {
   const weekDays = {"Mon":"Monday", "Tue": "Tuesday", "Wed":"Wednesday",
@@ -18,6 +17,7 @@ const WeatherItem = ({ forecast, day }) => {
         div {
           border: 1px solid #e7e7e7;
           text-align: center;
+          width: 15vw;
         }
         .day {
           font-size: 1.5vw;
@@ -26,8 +26,8 @@ const WeatherItem = ({ forecast, day }) => {
           font-family: "Tiempos", serif;
           font-weight: 600;
           font-size: 7vw;
-          padding: 0 1vw;
           display: inline;
+          letter-spacing: 2px;
         }
         section {
           border-top: 1px solid #e7e7e7;
@@ -36,6 +36,8 @@ const WeatherItem = ({ forecast, day }) => {
         small {
           font-size: 2vw;
           color: #fff;
+          position: relative;
+          left: 5px;
         }
         @media only screen and (max-width: 768px) {
           div {
@@ -59,7 +61,7 @@ const WeatherItem = ({ forecast, day }) => {
               min-width: 110px;
             }
             section p {
-              font-size: 11vw;
+              font-size: 10vw;
             }
           }
         }
