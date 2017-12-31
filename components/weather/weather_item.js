@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import styles from '../../assets/index.css';
+// var styles = require('../../assets/index.css');
 
 const WeatherItem = ({ forecast, day }) => {
   const weekDays = {"Mon":"Monday", "Tue": "Tuesday", "Wed":"Wednesday",

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Forecast from './forecast';
 import axios from 'axios';
 import $ from 'jquery';
-// import styles from '../../assets/index.css';
+// var styles = require('../../assets/index.css');
 
 class SearchInput extends Component {
   constructor(props) {
