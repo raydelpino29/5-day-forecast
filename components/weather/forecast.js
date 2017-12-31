@@ -22,7 +22,7 @@ class Forecast extends Component {
               padding: 0 7px;
               justify-content: center;
             }
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) {
               li {
                 padding: 5% 15%;
               }
@@ -86,7 +86,7 @@ class Forecast extends Component {
             top: 50%;
             transform: translateY(-50%);
           }
-          @media (max-width: 768px) {
+          @media only screen and (max-width: 768px) {
             ul {
               flex-direction: column;
               width: 20%;

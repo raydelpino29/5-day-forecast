@@ -1,4 +1,6 @@
 import { Component } from 'react';
+// import styles from '../../assets/index.css';
+
 const WeatherItem = ({ forecast, day }) => {
   const weekDays = {"Mon":"Monday", "Tue": "Tuesday", "Wed":"Wednesday",
           "Thu":"Thursday", "Fri":"Friday", "Sat":"Saturday", "Sun":"Sunday"};
@@ -10,39 +12,37 @@ const WeatherItem = ({ forecast, day }) => {
       </section>
       <style jsx>{`
         p, small {
-          font-family: "Tiempos", sans-serif;
-          font-weight: lighter;
+          font-family: "Apercu", sans-serif;
           color: #fff;
         }
         div {
           border: 1px solid #e7e7e7;
-          margin: 0 1vw;
           text-align: center;
         }
         .day {
           font-size: 1.5vw;
         }
         section p {
-          font-family: "Apercu", serif;
+          font-family: "Tiempos", serif;
           font-weight: 600;
-          font-size: 45px;
+          font-size: 7vw;
           padding: 0 1vw;
           display: inline;
         }
         section {
           border-top: 1px solid #e7e7e7;
-          padding: 10px 20px;
+          padding: 15px 30px;
         }
         small {
           font-size: 2vw;
           color: #fff;
         }
-        @media (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
           div {
             min-width: 120px;
           }
           section p {
-            font-size: 45px;
+            font-size: 35px;
           }
           section {
             padding: 9%;
@@ -54,7 +54,7 @@ const WeatherItem = ({ forecast, day }) => {
           small {
             font-size: 15px;
           }
-          @media (max-width: 480px) {
+          @media only screen and (max-width: 480px) {
             div {
               min-width: 110px;
             }

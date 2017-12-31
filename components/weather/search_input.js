@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Forecast from './forecast';
 import axios from 'axios';
 import $ from 'jquery';
+// import styles from '../../assets/index.css';
 
 class SearchInput extends Component {
   constructor(props) {
@@ -73,7 +74,6 @@ class SearchInput extends Component {
       scrollTop: $("#forecast").offset().top
     }, 1000);
   }
-// https://s3.us-east-2.amazonaws.com/icons123/downarrow.png
   render() {
     return (
       <div>
@@ -91,13 +91,12 @@ class SearchInput extends Component {
         <p className="error">{this.state.error}</p>
         <style jsx>{`
           h1 {
-            font: 40px "Apercu", serif;
-            font-weight: 500;
+            font: 40px "Tiempos", serif;
             color: #fff;
           }
           div {
             min-width: 320px;
-            min-height: 630px;
+            min-height: 568px;
             margin-bottom: 0;
           }
           input {
@@ -105,7 +104,10 @@ class SearchInput extends Component {
             width: 50%;
             background: transparent;
             border: 2px solid white;
-            font-size: 30px;
+            font-size: 40px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 4px;
           }
           p {
             display: block;
@@ -139,12 +141,12 @@ class SearchInput extends Component {
             top: -50%;
             transform: translateY(-50%);
           }
-          @media (max-width: 768px) {
+          @media only screen and (max-width: 768px) {
             input {
               width: 60%;
             }
           }
-          @media (max-width: 480px) {
+          @media only screen and (max-width: 480px) {
             input {
               width: 90%;
             }

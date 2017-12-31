@@ -18,29 +18,28 @@ export default class Page extends Component {
         <style jsx global>{`
           html {
             position: relative;
-            top: -29px;
+            top: -34px;
             left: -8px;
           }
           html, body, div {
             height: 100%;
             width: 100%;
           }
-          @font-face {
-            font-family: 'Tiempos';
-            src: url('.fonts/TiemposHeadline-Semibold.otf');
-            font-weight: normal;
-            font-style: normal;
+          ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: rgba(255, 255, 255, 0.3);
+
           }
-          @font-face {
-            font-family: 'Apercu'
-              src: url('./fonts/Apercu/apercu_bold_italic_pro.otf');
-              src: url('./fonts/Apercu/apercu_bold_pro.otf') format('opentype');
-              src: url('./fonts/Apercu/apercu_medium_italic_pro.otf') format('opentype');
-              src: url('./fonts/Apercu/apercu_regular_italic_pro.otf') format('opentype');
-              src: url('./fonts/Apercu/apercu_regular_pro.otf') format('opentype');
-              src: url('./fonts/Apercu/apercu_medium_pro.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
+          ::-moz-placeholder { /* Firefox 19+ */
+            color: rgba(255, 255, 255, 0.3);
+
+          }
+          :-ms-input-placeholder { /* IE 10+ */
+            color: rgba(255, 255, 255, 0.3);
+
+          }
+          :-moz-placeholder { /* Firefox 18- */
+            color: rgba(255, 255, 255, 0.3);
+
           }
         `}</style>
       </div>
