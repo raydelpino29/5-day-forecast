@@ -24,7 +24,7 @@ class Forecast extends Component {
             }
             @media only screen and (max-width: 768px) {
               li {
-                padding: 5% 15%;
+                margin: 6px 0 ;
               }
             }
           `}</style>
