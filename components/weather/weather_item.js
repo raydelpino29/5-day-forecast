@@ -10,17 +10,24 @@ const WeatherItem = ({ forecast, day }) => {
         <p>{forecast[day]}</p><small>F</small>
       </section>
       <style jsx>{`
-        p, small {
-          font-family: "Apercu", sans-serif;
-          color: #fff;
-        }
         div {
           border: 1px solid #e7e7e7;
           text-align: center;
           width: 15vw;
         }
-        .day {
-          font-size: 1.5vw;
+        section {
+          border-top: 1px solid #e7e7e7;
+          padding: 15px 30px;
+        }
+        p, small {
+          font-family: "Apercu", sans-serif;
+          color: #fff;
+        }
+        small {
+          font-size: 2.5vw;
+          color: #fff;
+          position: relative;
+          left: 5px;
         }
         section p {
           font-family: "Tiempos", serif;
@@ -29,32 +36,25 @@ const WeatherItem = ({ forecast, day }) => {
           display: inline;
           letter-spacing: 4px;
         }
-        section {
-          border-top: 1px solid #e7e7e7;
-          padding: 15px 30px;
-        }
-        small {
-          font-size: 2.5vw;
-          color: #fff;
-          position: relative;
-          left: 5px;
+        .day {
+          font-size: 1.5vw;
         }
         @media only screen and (max-width: 768px) {
           div {
             min-width: 120px;
           }
-          section p {
-            font-size: 35px;
-          }
           section {
             padding: 9%;
+          }
+          small {
+            font-size: 15px;
+          }
+          section p {
+            font-size: 35px;
           }
           .day {
             font-size: 15px;
             margin: 9px;
-          }
-          small {
-            font-size: 15px;
           }
           @media only screen and (max-width: 480px) {
             div {

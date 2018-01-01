@@ -78,25 +78,43 @@ class SearchInput extends Component {
       <div>
         <main>
           <form onSubmit={this.handleSubmit}>
-            <section>
               <h1>Weather app</h1>
               <p>Type in your zip code to see how awful the weather is in your area this week.</p>
               <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
               <img onClick={this.handleClick} src="https://s3.us-east-2.amazonaws.com/icons123/downarrow+(1).png" />
-            </section>
           </form>
         </main>
         <Forecast forecast={this.state.forecast} loading={this.state.loading}/>
         <p className="error">{this.state.error}</p>
         <style jsx>{`
-          h1 {
-            font: 35px "Tiempos", serif;
-            color: #fff;
-          }
           div {
             min-width: 320px;
             min-height: 568px;
             margin-bottom: 0;
+          }
+          main {
+            height: 100%;
+            background: #d34c34;
+          }
+          form {
+            margin-left: 5%;
+            position: relative;
+            position: relative;
+            justify-content: center;
+            top: 45%;
+            transform: translateY(-50%);
+          }
+          h1 {
+            font: 35px "Tiempos", serif;
+            color: #fff;
+          }
+          p {
+            display: block;
+            color: #fff;
+            width: 420px;
+            font: 17px "Apercu", sans-serif;
+            font-weight: lighter;
+            margin-bottom: 40px;
           }
           input {
             padding: 2% 2%;
@@ -107,26 +125,6 @@ class SearchInput extends Component {
             font-weight: 300;
             color: #fff;
             letter-spacing: 4px;
-          }
-          p {
-            display: block;
-            color: #fff;
-            width: 420px;
-            font: 17px "Apercu", sans-serif;
-            font-weight: lighter;
-            margin-bottom: 40px;
-          }
-          form {
-            margin-left: 5%;
-            position: relative;
-            position: relative;
-            justify-content: center;
-            top: 45%;
-            transform: translateY(-50%);
-          }
-          main {
-            height: 100%;
-            background: #d34c34;
           }
           img {
             cursor: pointer;

@@ -65,12 +65,6 @@ class Forecast extends Component {
                 transform: rotate(360deg);
             }
           }
-
-          p {
-            display: block;
-            color: black;
-            width: 350px;
-          }
           div {
             background: #333333;
             position: relative;
