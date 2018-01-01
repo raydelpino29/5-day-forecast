@@ -25,18 +25,18 @@ class SearchInput extends Component {
     } else if (thirtymonths.includes(date[1])) {
       monthLength = 30;
     }
-    let fiveDays = [];
+    let fiveDays = [];  // create an array of the five dates we want the weather for
     let count = 0;
     while (fiveDays.length < 5) {
       const day = parseInt(date[2]);
       if ((day + count) > monthLength) {
-        fiveDays.push((day + count) % monthLength);
+        fiveDays.push((day + count) % monthLength); // account for end of the month, when days will start at 1 again
       } else {
         fiveDays.push(day + count);
       }
       count++;
     }
-    let forecast = {};
+    let forecast = {}; // create a hash of the temperature and day { day: temp }
     Object.values(weather.data.list).forEach((info) => {
       const date = new Date(info.dt*1000).toString().split(" ");
       const dayNumber = parseInt(date[2]);
@@ -45,7 +45,7 @@ class SearchInput extends Component {
       if (forecast[dayNumber]) {
         return;
       } else if (fiveDays.includes(dayNumber)) {
-        const temp = Math.floor((info.main.temp * 9/5) - 459.67);
+        const temp = Math.floor((info.main.temp * 9/5) - 459.67); // convert temp in Kelvin to Fahrenheit
         forecast[weekDay] = temp;
       }
     });
@@ -54,12 +54,11 @@ class SearchInput extends Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.setState({ error: "", forecast: {}, loading: true });
+    this.setState({ error: "", forecast: {}, loading: true }); // trigger a render to show loading bar, and remove previous forecast/error
     const baseUrl = "https://api.openweathermap.org/data/2.5/forecast?zip=";
     const zip = `${this.state.zip}`;
     const fullUrl = baseUrl + zip + "&appid=670e6d2b31b62201dc47b79f5a87b500";
     axios.get(fullUrl).then((weather) => {
-      console.log(weather);
       this.parseForecast(weather);
     }, (error) => {
       this.setState({error: "This is not a valid US zip code. Please enter your code again.",
