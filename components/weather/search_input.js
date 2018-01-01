@@ -10,22 +10,15 @@ class SearchInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.parseFiveDays = this.parseFiveDays.bind(this);
   }
 
   handleChange (e) {
     this.setState({ zip: e.target.value });
   }
 
-  parseForecast (weather) {
-    const date = new Date(weather.data.list[0].dt*1000).toString().split(" "); // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
-    let monthLength = 31;
-    const thirtymonths = ["Sep", "Apr", "Jun", "Nov"];
-    if (date[1] === "Feb") {
-       monthLength = parseInt(date[3]) % 4 === 0 ? 29 : 28;
-    } else if (thirtymonths.includes(date[1])) {
-      monthLength = 30;
-    }
-    let fiveDays = [];  // create an array of the five dates we want the weather for
+  parseFiveDays (date, monthLength) {
+    let fiveDays = [];
     let count = 0;
     while (fiveDays.length < 5) {
       const day = parseInt(date[2]);
@@ -36,20 +29,38 @@ class SearchInput extends Component {
       }
       count++;
     }
+    return fiveDays;
+  }
+
+  parseForecast (weather) {
+    const date = new Date(weather.data.list[0].dt*1000).toString().split(" "); // grab first available day for forecast (current day or next if it's late in the day)
+    // ex: ["Sat", "Sep", "09", "2017", "00:00:00", "GMT-0400", "(EDT)"]
+    let monthLength = 31;
+    const thirtyMonths = ["Sep", "Apr", "Jun", "Nov"]; // months with 30 days
+
+    if (date[1] === "Feb") {
+       monthLength = parseInt(date[3]) % 4 === 0 ? 29 : 28; // if it's february, then monthLength = 28, unless it's a leap year (monthLength = 29)
+    } else if (thirtyMonths.includes(date[1])) {
+      monthLength = 30; // monthLength = 30 days if it's in our thirtyMonths array
+    }
+
+    const fiveDays = this.parseFiveDays(date, monthLength);  // create an array of the five dates we want the weather for
+
     let forecast = {}; // create a hash of the temperature and day { day: temp }
     Object.values(weather.data.list).forEach((info) => {
       const date = new Date(info.dt*1000).toString().split(" ");
       const dayNumber = parseInt(date[2]);
       const weekDay = date[0];
 
-      if (forecast[dayNumber]) {
+      if (forecast[dayNumber]) { // immediately return if we have already gotten forecast for this day
         return;
-      } else if (fiveDays.includes(dayNumber)) {
+      } else if (fiveDays.includes(dayNumber)) { // otherwise if this day is in our fiveDays array, add the forecast to our hash
         const temp = Math.floor((info.main.temp * 9/5) - 459.67); // convert temp in Kelvin to Fahrenheit
         forecast[weekDay] = temp;
       }
+
     });
-    this.setState({ forecast, loading: false });
+    this.setState({ forecast, loading: false }); // trigger a render that stops the loading spinner, and sets local state with forecast
   }
 
   handleSubmit (e) {
