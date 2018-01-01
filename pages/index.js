@@ -3,9 +3,6 @@ import Head from 'next/head';
 import SearchInput from '../components/weather/search_input';
 
 export default class Page extends Component {
-  async getInitialProps() {
-    return { };
-  }
 
   render() {
     return (
