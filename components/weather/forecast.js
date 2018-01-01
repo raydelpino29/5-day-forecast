@@ -32,7 +32,7 @@ class Forecast extends Component {
       );
     });
     let spinnerClass = this.props.loading ? "spinner" : "";
-    // credit the spinner
+    // credit for loading spinner goes to smashtheshell at https://codepen.io/smashtheshell/pen/jqGxzr
     return (
       <div id="forecast">
       <i className={spinnerClass}></i>
