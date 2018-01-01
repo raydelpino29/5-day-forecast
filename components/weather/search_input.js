@@ -121,7 +121,7 @@ class SearchInput extends Component {
             position: relative;
             position: relative;
             justify-content: center;
-            top: 50%;
+            top: 45%;
             transform: translateY(-50%);
           }
           main {
@@ -132,7 +132,8 @@ class SearchInput extends Component {
             cursor: pointer;
             height: 35px;
             display: table-header-group;
-            margin-top: 50px;
+            position: absolute;
+            top: 120%;
           }
           .error {
             position: relative;

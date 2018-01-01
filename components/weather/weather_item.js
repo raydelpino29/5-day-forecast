@@ -27,14 +27,14 @@ const WeatherItem = ({ forecast, day }) => {
           font-weight: 600;
           font-size: 7vw;
           display: inline;
-          letter-spacing: 2px;
+          letter-spacing: 4px;
         }
         section {
           border-top: 1px solid #e7e7e7;
           padding: 15px 30px;
         }
         small {
-          font-size: 2vw;
+          font-size: 2.5vw;
           color: #fff;
           position: relative;
           left: 5px;
