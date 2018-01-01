@@ -19,7 +19,7 @@ export default class Page extends Component {
         <style jsx global>{`
           html {
             position: relative;
-            top: -34px;
+            top: -29px;
             left: -8px;
           }
           html, body, div {
