@@ -11,6 +11,7 @@ export default class Page extends Component {
           <title>Common Weather App</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link href="/static/index.css" rel="stylesheet" />
+          <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
         </Head>
         <SearchInput />
         <style jsx global>{`
