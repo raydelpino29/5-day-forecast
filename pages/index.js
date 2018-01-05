@@ -20,11 +20,9 @@ export default class Page extends Component {
             top: -30px;
             left: -8px;
           }
-          @media screen and (-ms-high-constrast: active), (-ms-high-constrast: none) {
+          @media all and (-ms-high-constrast: none), (-ms-high-constrast: active) {
             html {
-              position: relative;
               top: -23px;
-              left: -8px;
             }
           }
           html, body, div {
