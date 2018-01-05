@@ -20,6 +20,13 @@ export default class Page extends Component {
             top: -30px;
             left: -8px;
           }
+          @media screen and (-ms-high-constrast: active), (-ms-high-constrast: none) {
+            html {
+              position: relative;
+              top: -20px;
+              left: -8px;
+            }
+          }
           html, body, div {
             height: 100%;
             width: 100%;
