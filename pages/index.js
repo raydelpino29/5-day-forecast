@@ -39,8 +39,8 @@ export default class Page extends Component {
             color: rgba(255, 255, 255, 0.3);
 
           }
-          :-ms-input-placeholder { /* IE 10+ */
-            color: rgba(255, 255, 255, 0.3);
+          input:-ms-input-placeholder { /* IE 10+ */
+            color: rgba(255, 255, 255, 0.3) !important;
 
           }
           :-moz-placeholder { /* Firefox 18- */
