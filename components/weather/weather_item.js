@@ -50,10 +50,10 @@ const WeatherItem = ({ forecast, day }) => {
             font-size: 15px;
           }
           section p {
-            font-size: 35px;
+            font-size: 33px;
           }
           .day {
-            font-size: 15px;
+            font-size: 12px;
             margin: 9px;
           }
           @media only screen and (max-width: 480px) {
@@ -61,7 +61,7 @@ const WeatherItem = ({ forecast, day }) => {
               min-width: 110px;
             }
             section p {
-              font-size: 10vw;
+              font-size: 35px;
             }
           }
         }
