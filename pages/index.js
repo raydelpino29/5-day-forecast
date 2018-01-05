@@ -26,6 +26,11 @@ export default class Page extends Component {
               top: -23px;
             }
           }
+          @supports (-ms-ime-align: auto) {
+            html {
+              top: -23px;
+            }
+          }
           html, body, div {
             height: 100%;
             width: 100%;
