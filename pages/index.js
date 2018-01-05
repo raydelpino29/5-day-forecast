@@ -18,7 +18,7 @@ export default class Page extends Component {
         <style jsx global>{`
           html {
             position: relative;
-            top: -30px;
+            top: -29px;
             left: -8px;
           }
           @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
