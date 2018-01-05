@@ -86,14 +86,14 @@ class SearchInput extends Component {
   render() {
     return (
       <div>
-        <main>
+        <article>
           <form onSubmit={this.handleSubmit}>
               <h1>Weather app</h1>
               <p>Type in your zip code to see how awful the weather is in your area this week.</p>
               <input placeholder="000000" onChange={this.handleChange} value={this.state.zip} />
               <img onClick={this.handleClick} src="https://s3.us-east-2.amazonaws.com/icons123/downarrow+(1).png" />
           </form>
-        </main>
+        </article>
         <Forecast forecast={this.state.forecast} loading={this.state.loading}/>
         <p className="error">{this.state.error}</p>
         <style jsx>{`
@@ -102,7 +102,7 @@ class SearchInput extends Component {
             min-height: 568px;
             margin-bottom: 0;
           }
-          main {
+          article {
             height: 100%;
             background: #d34c34;
           }
