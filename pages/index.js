@@ -23,7 +23,7 @@ export default class Page extends Component {
           @media screen and (-ms-high-constrast: active), (-ms-high-constrast: none) {
             html {
               position: relative;
-              top: -20px;
+              top: -24px;
               left: -8px;
             }
           }
