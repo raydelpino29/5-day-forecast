@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Head from 'next/head';
 import SearchInput from '../components/weather/search_input';
+import 'babel-polyfill';
 
 export default class Page extends Component {
 
