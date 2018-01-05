@@ -20,7 +20,7 @@ export default class Page extends Component {
             top: -30px;
             left: -8px;
           }
-          @media all and (-ms-high-constrast: none), (-ms-high-constrast: active) {
+          @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
             html {
               top: -23px;
             }
