@@ -42,6 +42,7 @@ const WeatherItem = ({ forecast, day }) => {
         @media only screen and (max-width: 768px) {
           div {
             min-width: 120px;
+            height: 100%;
           }
           section {
             padding: 9%;

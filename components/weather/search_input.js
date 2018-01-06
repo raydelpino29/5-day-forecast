@@ -101,6 +101,7 @@ class SearchInput extends Component {
             min-width: 320px;
             min-height: 568px;
             margin-bottom: 0;
+            height: 100%;
           }
           article {
             height: 100%;

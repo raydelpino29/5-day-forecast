@@ -31,7 +31,7 @@ export default class Page extends Component {
               top: -23px;
             }
           }
-          html, body, div {
+          html, body {
             height: 100%;
             width: 100%;
           }
