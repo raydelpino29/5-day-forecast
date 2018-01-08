@@ -35,6 +35,9 @@ export default class Page extends Component {
             height: 100%;
             width: 100%;
           }
+          body > div:last-child { /* for purpose of removing an extra bottom div on chrome for windows in production */
+            height: 0;
+          }
           ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
             color: rgba(255, 255, 255, 0.3);
 
