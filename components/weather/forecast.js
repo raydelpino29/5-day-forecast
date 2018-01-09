@@ -71,7 +71,6 @@ class Forecast extends Component {
             height: 100%;
             display: block;
             overflow: hidden;
-            height: 100%;
           }
           ul {
             display: flex;

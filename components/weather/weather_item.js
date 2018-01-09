@@ -55,7 +55,8 @@ const WeatherItem = ({ forecast, day }) => {
             height: 100%;
           }
           section {
-            padding: 9%;
+            padding-top: 0.8em;
+            padding-bottom: 0.5em;
           }
           small {
             font-size: 15px;
