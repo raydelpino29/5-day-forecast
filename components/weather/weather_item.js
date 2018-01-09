@@ -17,8 +17,8 @@ const WeatherItem = ({ forecast, day }) => {
         }
         section {
           border-top: 1px solid #e7e7e7;
-          padding-top: 18px;
-          padding-bottom: 10px;
+          padding-top: 20px;
+          padding-bottom: 15px;
         }
         p, small {
           font-family: "Apercu", sans-serif;
