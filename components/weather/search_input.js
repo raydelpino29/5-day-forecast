@@ -118,6 +118,7 @@ class SearchInput extends Component {
           h1 {
             font: 35px "Tiempos", serif;
             color: #fff;
+            margin-top: 0;
           }
           p {
             display: block;

@@ -16,26 +16,14 @@ export default class Page extends Component {
         </Head>
         <SearchInput />
         <style jsx global>{`
-          html {
-            position: relative;
-            top: -29px;
-            left: -8px;
-          }
-          @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            html {
-              top: -23px;
-            }
-          }
-          @supports (-ms-ime-align: auto) {
-            html {
-              top: -23px;
-            }
+          body {
+            margin: 0;
           }
           html, body, div {
             height: 100%;
             width: 100%;
           }
-          body > div:last-child { /* for purpose of removing an extra bottom div on chrome for windows in production */
+          body > div:last-child {/* for purpose of removing an extra bottom div on chrome for windows */
             height: 0;
           }
           ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
