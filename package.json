@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Take-home project for front end candidates",
   "main": "index.js",
-  "author": "Ray Delpino <raydelpino29@gmail.com>",
+  "author": "Raymond Delpino <raydelpino29@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
